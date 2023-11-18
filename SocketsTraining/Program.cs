@@ -11,14 +11,11 @@ IPEndPoint endPoint = new IPEndPoint(IPAddress, port);
 Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 socket.Bind(endPoint);
 socket.Listen();
-socket.Accept();
-socket.Receive(bytes);
+socket.Accept().Receive(bytes);
+//socket.Receive(bytes);
 
 
-while (!bytes.Any())
-{
-    //Console.WriteLine(socket.IsBound);
-}
+
 
 Console.WriteLine(Encoding.UTF8.GetString(bytes));
 
